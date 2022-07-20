@@ -36,6 +36,7 @@ func TestReadContainerID(t *testing.T) {
 		`1:name=systemd:/nope
 2:pids:/docker/34dc0b5e626f2c5c4c5170e34b10e7654ce36f0fcd532739f4445baabea03376
 3:cpu:/invalid`: "34dc0b5e626f2c5c4c5170e34b10e7654ce36f0fcd532739f4445baabea03376",
+		"11:devices:/system.slice/garden.service/garden/4825ccb5-dbd5-46b9-57de-ce3f": "4825ccb5-dbd5-46b9-57de-ce3f",
 	} {
 		id := parseContainerID(strings.NewReader(in))
 		if id != out {
