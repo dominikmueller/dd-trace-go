@@ -161,6 +161,8 @@ func (t *httpTransport) send(p *payload) (body io.ReadCloser, err error) {
 		req.Header.Set("Datadog-Client-Dropped-P0-Traces", strconv.Itoa(droppedTraces))
 		req.Header.Set("Datadog-Client-Dropped-P0-Spans", strconv.Itoa(droppedSpans))
 	}
+
+	fmt.Printf("!!!!!! REQUEST:\nBody: %v\nHeader: %v\n", req.Body, req.Header)
 	response, err := t.client.Do(req)
 	if err != nil {
 		return nil, err
