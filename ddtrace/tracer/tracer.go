@@ -7,6 +7,7 @@ package tracer
 
 import (
 	gocontext "context"
+	"fmt"
 	"os"
 	"runtime/pprof"
 	rt "runtime/trace"
@@ -117,6 +118,8 @@ func Start(opts ...StartOption) {
 	if !t.config.enabled {
 		return
 	}
+	fmt.Printf("!!!!! TRACER: %v\n", t)
+	fmt.Printf("!!!!! TRACER Transport: %v\n", t.config.transport)
 	internal.SetGlobalTracer(t)
 	if t.config.logStartup {
 		logStartup(t)
