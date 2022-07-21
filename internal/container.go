@@ -38,6 +38,7 @@ var (
 
 func init() {
 	containerID = readContainerID(cgroupPath)
+	fmt.Printf("!!!!!! container.go: init %v\n", containerID)
 }
 
 // parseContainerID finds the first container ID reading from r and returns it.
