@@ -99,6 +99,10 @@ func newHTTPTransport(addr string, client *http.Client) *httpTransport {
 	}
 	if cid := internal.ContainerID(); cid != "" {
 		fmt.Printf("!!!!!! transport.go: INTERNAL CONTAINERID: %v\n", cid)
+		// e7244e18-102
+		cid = cid[:12]
+		fmt.Printf("!!!!!! transport.go: NEW INTERNAL CONTAINERID: %v\n", cid)
+		//cid = e7244e18-102
 		defaultHeaders["Datadog-Container-ID"] = cid
 	}
 	return &httpTransport{
